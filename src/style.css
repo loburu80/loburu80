@@ -1,0 +1,169 @@
+        /* CSS for the task manager application */
+        body{
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+            color: #2d3748;
+            line-height: 1.6;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: #1a202c;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        .progress-container {
+            margin-bottom: 30px;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .progress-label {
+            font-size: 1em;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+        .progress-bar {
+            height: 20px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3182ce, #2b6cb0);
+            width: 0;
+            transition: width 0.5s ease;
+        }
+        .task-form {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 30px;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .task-form:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+        .task-form input, .task-form select {
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .task-form input:focus, .task-form select:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+        }
+        .task-form button {
+            padding: 12px;
+            background: linear-gradient(90deg, #3182ce, #2b6cb0);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .task-form button:hover {
+            background: linear-gradient(90deg, #2b6cb0, #2c5282);
+            transform: translateY(-2px);
+        }
+        /* Designing Added task */
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        .task-item {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: slideIn 0.3s ease forwards;
+        }
+        .task-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+        }
+        .task-item.completed {
+            background: #edf2f7;
+            opacity: 0.85;
+        }
+        .task-item.completed .task-details {
+            text-decoration: line-through;
+            color: #718096;
+        }
+        .task-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            accent-color: #3182ce;
+            cursor: pointer;
+        }
+        .task-details {
+            flex: 1;
+            font-size: 1.1em;
+        }
+        .task-details span {
+            display: block;
+            color: #4a5568;
+            font-size: 0.85em;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        /* designing delete button */
+        .delete-btn {
+            background: linear-gradient(90deg, #e53e3e, #c53030);
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        .delete-btn:hover {
+            background: linear-gradient(90deg, #c53030, #9b2c2c);
+            transform: translateY(-2px);
+        }
+        /* animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* for responsiveness  for a background less than 600px*/
+        @media (max-width: 600px) {
+            .task-form {
+                grid-template-columns: 1fr;
+            }
+            .task-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            .delete-btn {
+                align-self: flex-end;
+            }
+        }
